@@ -72,7 +72,7 @@
 70,,1877,,,couletié,Louis,chef,Avow,,francaise,,employé chez cordonnier,,Chevrette
 71,,1888,,,Usine d'ambere,Victorine,,Paris,,francaise,,stoppeuse,Chaudron,
 72,,1901,,,Rène Renaud,Solange,épouse,Orléans,,francaise,,Tiseuse,,Debien
-73,,1896,,,Natle crédit,Georges,chef,Blois,,francaise,,emp. Banque,Idem,
+73,,1896,,,Natle crédit,Georges,chef,Blois,,francaise,,emp. Banque,,
 74,1867,,,,,Louis,chef,Chatillon n Loire,,francaise,,confectionneur à façon,,Boisgibauet
 75,,1865,,,,Marie,épouse,chécy,,francaise,,ménagère,,
 76,,,,,,Eva,enfant,,,francaise,,sans profession,,
@@ -1280,9 +1280,9 @@
 1278,,1919,,,,Denise,fille,Le Raincy,,,,,Detang,
 1279,,1856,,,,Marie Céline,grand mère,Léronville,,,,,Detang,
 1280,,1904,,,,Georgette,,Léronville,,,,,Charpentier,
-1281,,1872,,,magasin d'habillt gal,Louis Jules,chef de ménage,Épernay,,Idem,,comptable,,Degany
+1281,,1872,,,magasin d'habillt gal,Louis Jules,chef de ménage,Épernay,,,,comptable,,Degany
 1282,,1878,,,,Céline Victoire,épouse,Montigny,,,,Institutrice,Degany,
-1283,,1913,,,,Jean Robert,fils,Reims,,Idem,,,Degany,
+1283,,1913,,,,Jean Robert,fils,Reims,,,,,Degany,
 1284,,1893,,,patron,Marcel,chef de ménage,Tours,,,,Loueur autos,,Moreau
 1285,,1886,,,Cie est,Louis Martial,chef de ménage,Fagnières,,,,mécanicien,,Cagniot
 1286,,1857,,,,Hermance,mère,Fagnières,,,,s.p.,Cagniot,
@@ -3483,8 +3483,8 @@
 3481,,1852,,,,Marie,chef,Olivet,,française,,Ménagère,,Nioche
 3482,,1873,,,,Paul,chef,Noisy-sur-École,,française,,courtier,,Déles
 3483,,1878,,,,Georgette,femme,Pithiviers,,française,,sans,,
-3484,,1902,,,B.N.C,Suzanne,enfant,Orléans,,française,,employé banque,Idem,
-3485,,1905,,,,Lucienne,enfant,Orléans,,française,,sans,Idem,
+3484,,1902,,,B.N.C,Suzanne,enfant,Orléans,,française,,employé banque,,
+3485,,1905,,,,Lucienne,enfant,Orléans,,française,,sans,,
 3486,,1904,,,,Pierre,enfant,Orléans,,française,,ideù,ideù,
 3487,,1879,,,,Charles,frère,?,,française,,ideù,ideù,
 3488,,1854,,,,Marie,chef,Orléans,,française,,couturière,,Charpin
@@ -3680,8 +3680,8 @@
 3678,,1929,,,,André Maurice,fils,Orléans Loiret,,,,sans profession,Jalier,
 3679,,1889,,,,Geneviève,chef,Orléans Loiret,,française,,sans profession,,Baudron
 3680,,1879,,,Patronne,Jeanne,chef,Deya Espagne,,Espagnole,,Commercante,,Vivès Mas
-3681,,1909,,,Idem,Mathieu,fils,Orléans Loiret,,française,,Employé,Vivès,
-3682,,1912,,,Idem,Antoine,fils,Deya Espagne,,espagnole,,employé,Vivès,
+3681,,1909,,,Patronne,Mathieu,fils,Orléans Loiret,,française,,Employé,Vivès,
+3682,,1912,,,Patronne,Antoine,fils,Deya Espagne,,espagnole,,employé,Vivès,
 3683,,1885,,,,Janne,enfant,Orleans,,francaise,,,Moreau,
 3684,,1880,,,Moreau,Eugènie,Domestique,Charsonville,,francaise,,,Chartrain,
 3685,,1866,,,,Albert,chef,Saint-Hilaire-Saint-Mesmin,,francaise,,Bourtier,,Durand
@@ -6471,9 +6471,9 @@
 6469,31,,Homme marié,,,Yves,leur gendre,,,,,cultivateur,Cann,
 6470,37,,Femme mariée,,,Marie Jeanne,femme de ce dernier,,,,,,Marzin,
 6471,6,,Fille,,,Marie Jeanne,leur fille,,,,,,Cann,
-6472,5,,Garçon,,,Yves,leur fils,,,,,,Idem,
-6473,2,,Garçon,,,François,leur fils,,,,,,Idem,
-6474,18 mois,,Fille,,,Gabrielle,leur fille,,,,,,Idem,
+6472,5,,Garçon,,,Yves,leur fils,,,,,,Cann,
+6473,2,,Garçon,,,François,leur fils,,,,,,Cann,
+6474,18 mois,,Fille,,,Gabrielle,leur fille,,,,,,Cann,
 6475,33,,Homme marié,,,François,,,,,,cultivateur,,Roudaut
 6476,35,,Femme mariée,,,Marie,sa femme,,,,,,Lesteven,
 6477,3,,Fille,,,Marie Jeanne,leur fille,,,,,,Roudaut,
@@ -13194,7 +13194,7 @@
 13192,,1890,,,,Marguerite,femme,Bonneville,,française,,sp,Perrier,
 13193,,1912,,,,Gilberte,fille,St P de Corm,,française,,s p,Lechien,
 13194,,1914,,,,Lucienne,fille,Cormeilles,,française,,s p,Lechien,
-13195,,1922,,,,Jean,fils,Idem,,française,,mécanicien,Lechien,
+13195,,1922,,,,Jean,fils,Cormeilles,,française,,mécanicien,Lechien,
 13196,,1888,,,C.G.M,Gaston,chef,Morainville,,française,,mécanicien,,Michel
 13197,,1888,,,patronne,Marguerite,femme,Cormeilles,,française,,repasseuse,Jores,
 13198,,1855,,,,Armandine,belle mère,Bois Hellain,,française,,s p,Jores,
@@ -13204,12 +13204,12 @@
 13202,,1912,,,Roger,Louis,etrang,Janzé,,française,,domestique,Leray,
 13203,,1892,,,Durant,Arcade,chef,St Pellerin,,française,,mécanicien,,Leguay
 13204,,1891,,,,Eugénie,amie,Moyaux,,française,,s p,Lecouteur,
-13205,,1912,,,,Berthe,amie,Idem,,française,,s p,Lecouteur,
-13206,,1914,,,,Jean,Idem,Idem,,française,,s p,Lecouteur,
-13207,,1919,,,,Suzanne,fille,Idem,,française,,s p,Leguay,
+13205,,1912,,,,Berthe,amie,Moyaux,,française,,s p,Lecouteur,
+13206,,1914,,,,Jean,amie,Moyaux,,française,,s p,Lecouteur,
+13207,,1919,,,,Suzanne,fille,Moyaux,,française,,s p,Leguay,
 13208,,1920,,,,Roger,fils,Cormeilles,,française,,s p,Leguay,
-13209,,1922,,,,Simone,fille,Idem,,française,,s p,Leguay,
-13210,,1925,,,,Solange,Idem,Idem,,française,,s p,Leguay,
+13209,,1922,,,,Simone,fille,Cormeilles,,française,,s p,Leguay,
+13210,,1925,,,,Solange,fille,Cormeilles,,française,,s p,Leguay,
 13211,,1853,,,divers,Eugénie,chef,St Jean de la Neuville,,française,,journalière,,Catelin
 13212,,1891,,,,,cheg,Bonnebosq,,française,,s p,,Thierry
 13213,,1912,,,,Lucien,fils,Cormeilles,,française,,s p,Dupont,
@@ -13883,21 +13883,21 @@
 13881,,1884,,,patron,Georges,chef de ménage,Minaucourt,,Francaise,,cultivateur,,Cuny
 13882,,1891,,,,Aimé,son frère,Minaucourt,,Francaise,,cultivateur,Cuny,
 13883,,1846,,,patro,Aimé,chef de ménage,Minaucourt,,Francaise,,cultivateur,,Dez
-13884,,1873,,,,Marie,sa femme,hans,,Idem,,s profession,Dez,
-13885,,1885,,,,Gabriel,son fils,Minaucourt,,Idem,,cultivateur,Dez,
-13886,,1887,,,,Albert,son fils,Minaucourt,,Idem,,cultivateur,Dez,
-13887,,1891,,,,Paulin,son fils,Minaucourt,,Idem,,cultivateur,Dez,
-13888,,1893,,,,Pauline,sa fille,Minaucourt,,Idem,,s profession,Dez,
-13889,,1895,,,,Pierre,son fils,Minaucourt,,Idem,,s profession,Dez,
-13890,,1823,,,,Céline,chef de mé age,Minaucourt,,Idem,,s profession,,Mathieur
-13891,,1855,,,patron,Elie,chef de ménage,La Cheppe,,Idem,,Boulanger,,Galichet
-13892,,1886,,,,Jeanne,sa fille,Minaucourt,,Idem,,s profession,Galichet,
-13893,,1892,,,,Maurice,son fils,Minaucourt,,Idem,,Boulanger,Galichet,
-13894,,1868,,,patron,Arthur,chef de ménage,Les Islettes,,Idem,,cultivateur,,Barthélemy
-13895,,1870,,,,Louise,sa femme,Minaucourt,,Idem,,s profession,Barthélemy,
-13896,,1899,,,,Robert,son fils,Minaucourt,,Idem,,s profession,Barthélemy,
-13897,,1866,,,patron,Armide,chef de ménage,Minaucourt,,Idem,,ferblantier,,Colson
-13898,,1866,,,,Lucie,sa femme,Courtémont,,Idem,,Couturière,Colson,
+13884,,1873,,,,Marie,sa femme,hans,,Francaise,,s profession,Dez,
+13885,,1885,,,,Gabriel,son fils,Minaucourt,,Francaise,,cultivateur,Dez,
+13886,,1887,,,,Albert,son fils,Minaucourt,,Francaise,,cultivateur,Dez,
+13887,,1891,,,,Paulin,son fils,Minaucourt,,Francaise,,cultivateur,Dez,
+13888,,1893,,,,Pauline,sa fille,Minaucourt,,Francaise,,s profession,Dez,
+13889,,1895,,,,Pierre,son fils,Minaucourt,,Francaise,,s profession,Dez,
+13890,,1823,,,,Céline,chef de mé age,Minaucourt,,Francaise,,s profession,,Mathieur
+13891,,1855,,,patron,Elie,chef de ménage,La Cheppe,,Francaise,,Boulanger,,Galichet
+13892,,1886,,,,Jeanne,sa fille,Minaucourt,,Francaise,,s profession,Galichet,
+13893,,1892,,,,Maurice,son fils,Minaucourt,,Francaise,,Boulanger,Galichet,
+13894,,1868,,,patron,Arthur,chef de ménage,Les Islettes,,Francaise,,cultivateur,,Barthélemy
+13895,,1870,,,,Louise,sa femme,Minaucourt,,Francaise,,s profession,Barthélemy,
+13896,,1899,,,,Robert,son fils,Minaucourt,,Francaise,,s profession,Barthélemy,
+13897,,1866,,,patron,Armide,chef de ménage,Minaucourt,,Francaise,,ferblantier,,Colson
+13898,,1866,,,,Lucie,sa femme,Courtémont,,Francaise,,Couturière,Colson,
 13899,,,,,Cuny,Emile,son fils,Minaucourt,,,,ouvrier agricol,Colson,
 13900,,1903,,,,Eugéne,son fils,Minaucourt,,,,s profession,Colson,
 13901,,1876,,,patron,Jean Baptiste,chef de ménage,Minaucourt,,,,cultivateur,,Macquart
@@ -14231,14 +14231,14 @@
 14229,,1930,,,,Genviève,fille,Anglure,,française,,sans,Archin,
 14230,,1934,,,,Yvonne,fille,Anglure,,française,,sans,Archin,
 14231,,1900,,,Pierre f.,Marcel,chef,Cormicy,,française,,ouvrier agricole,,Herbert
-14232,,1907,,,,Andrée,épouse,Allemanche,,Idem,,sans,Herbert,
-14233,,1930,,,,Jeannine,fille,Anglure,,Idem,,sans,Herbert,
-14234,,1931,,,,Michel,fils,Anglure,,Idem,,sans,Herbert,
-14235,,1932,,,,Raymond,fils,Anglure,,Idem,,sans,Herbert,
-14236,,1934,,,,Marie Rose,fille,Anglure,,Idem,,sans,Herbert,
-14237,,1858,,,,Paul,chef,Anglure,,Idem,,sans,,Oudin
-14238,,1888,,,patron,Henri,chef,Anglure,,Idem,,cultivateur,Oudin,
-14239,,1894,,,,Estelle,épouse,Clesles,,Idem,,sans,Oudin,
+14232,,1907,,,,Andrée,épouse,Allemanche,,française,,sans,Herbert,
+14233,,1930,,,,Jeannine,fille,Anglure,,française,,sans,Herbert,
+14234,,1931,,,,Michel,fils,Anglure,,française,,sans,Herbert,
+14235,,1932,,,,Raymond,fils,Anglure,,française,,sans,Herbert,
+14236,,1934,,,,Marie Rose,fille,Anglure,,française,,sans,Herbert,
+14237,,1858,,,,Paul,chef,Anglure,,française,,sans,,Oudin
+14238,,1888,,,patron,Henri,chef,Anglure,,française,,cultivateur,Oudin,
+14239,,1894,,,,Estelle,épouse,Clesles,,française,,sans,Oudin,
 14240,,,,,,Marie,épouse,Ladurballe Morbihan,,française,,sp,Gilbert,
 14241,,1875,,,Dauourt,Alexandre,chef,Maresché Sarth,,française,,manoeuvre,,Fouché
 14242,,1907,,,Haussair,Arthur,enfant,Holtz,,Luxembourgeois,,coursier,Fouché,
@@ -14314,8 +14314,8 @@
 14312,47,,,,Cail et Bigot,Victor,Chef,,,,,Peintre en,,Arnot
 14313,41,,,,,Régina,ép,,,,,sp,Pauce,
 14314,19,,,,,Germaine,Enft,,,,,,Lheutre,
-14315,19,,,,,Maurice,Idem,,,,,,Arnot,
-14316,2,,,,,Robert,Idem,,,,,,Arnot,
+14315,19,,,,,Maurice,Enft,,,,,,Arnot,
+14316,2,,,,,Robert,Enft,,,,,,Arnot,
 14317,56,,,,s.t,Lodoiska,Chef,,,,,repasseur,,Voiselle
 14318,21,,,,Falry,Albert,Enft,,,,,employé,Christophe,
 14319,18,,,,Dulin,Fernand,Enft,,,,,serrurier,Christophe,
@@ -14803,12 +14803,12 @@
 14801,,1895,,,,juliette,fille,Reims,,Française,,sp,Morin,
 14802,,,,,,Germaine,fille,Reims,,Française,,sp,Morin,
 14803,,1867,,,Remos,Jules Léon,chef,Boherns astin,,Française,,vendeur Indépt,,Defrelle
-14804,,1868,,,,Blanche,ep,Reims,,Idem,,sp.,Robault ep Defrelle,
-14805,,1892,,,Humberd,Desiré Jean,fils,Reims,,Idem,,Journal.,Defrelle,
-14806,,1892,,,Triquenol,Lucien,fils,Reims,,Idem,,bisautier,Defrelle,
-14807,,,,,,Jean Baptiste,b. père,Epernay,,Idem,,sp,Robault,
-14808,,1840,,,Holden,Leopold,chef,Reims,,Idem,,Journalier,,Lorin
-14809,1852,,,,,Joséphine,ep,Reims,,Idem,,s.p.,Rouilles ep Lorin,
+14804,,1868,,,,Blanche,ep,Reims,,Française,,sp.,Robault ep Defrelle,
+14805,,1892,,,Humberd,Desiré Jean,fils,Reims,,Française,,Journal.,Defrelle,
+14806,,1892,,,Triquenol,Lucien,fils,Reims,,Française,,bisautier,Defrelle,
+14807,,,,,,Jean Baptiste,b. père,Epernay,,Française,,sp,Robault,
+14808,,1840,,,Holden,Leopold,chef,Reims,,Française,,Journalier,,Lorin
+14809,1852,,,,,Joséphine,ep,Reims,,Française,,s.p.,Rouilles ep Lorin,
 14810,,1850,,,,Elisabeth,épouse,Châlons,,Française,,s.p,Lesseville,
 14811,,1863,,,De Lesseville,Sylvestre,employé,Boqueho cotes du nord,,Française,,Valet de chambre,Monjaret,
 14812,,1876,,,,Adolphone,employé,Jessains (Aube),,Française,,Cuisinière,Morin,
@@ -15063,7 +15063,7 @@
 15061,48,,,,Magniey,Joseph,chef,,,,,cocher,,Heinty
 15062,42,,,,,Catherine,sp,,,,,sp,Tréchenlault,
 15063,19,,,,,Joseph,enft,,,,,,Heinta,
-15064,10,,,,,Emile,enft,,,,,,Idem,
+15064,10,,,,,Emile,enft,,,,,,Heinta,
 15065,21,,,,,Désiré,chef,,,,,clerc d'avoué,,Charpentier
 15066,90,,,,,Louise,ép,,,,,,Vigreux,
 15067,1,,,,,Renée,enft,,,,,,Charpentier,
@@ -15954,7 +15954,7 @@
 15952,,1892,,,,Marie Louise,épouse,Lyon,,française,,,Grail,
 15953,,1921,,,,Jean,enfant,Montregard,,française,,,Grail,
 15954,,1846,,,Grange,Mariette,chef,Riotord,,française,,ouv. soie,,Bruyère
-15955,,1864,,,Grange,Marie,sœur,Idem,,française,,ouv. soie,Bruyère,
+15955,,1864,,,Grange,Marie,sœur,Riotord,,française,,ouv. soie,Bruyère,
 15956,,1850,,,,Claude,chef,St Julien Mle,,française,,meunier,,Pataud
 15957,,1879,,,,Louis,fils,St Julien Mle,,française,,journalier,Pataud,
 15958,,1877,,,Grange,Marie,fille,St Julien Mle,,française,,ouv. soie,Pataud,
@@ -18629,26 +18629,26 @@
 18627,,1848,,,,Marie,ép,Chantelle Allier,,française,,,Villedieu,
 18628,,1906,,,Treyve,Louis,fils de la bonne,Lunéville,,française,"LK: Moulins 1926 double page 55, j'ai vérifié sur arkindex qu'il y a bien une domestique nommée Rougeron dans le ménage, juste avant lui.",horticulteur,Rougerou,
 18629,,1887,,,P,Maurice,chef,Seine,,française,,hôtelier,Cagnat,
-18630,,1892,,,P,Andrée,épouse,Idem,,française,,hôtelier,Cagnat,
+18630,,1892,,,P,Andrée,épouse,Seine,,française,,hôtelier,Cagnat,
 18631,,1913,,,,Jacques,fils,,,,,,Cagnat,
-18632,,1920,,,,Roger,fils,Idem,,française,,,Cagnat,
-18633,,1922,,,,Guy,fils,Idem,,française,,,Cagnat,
+18632,,1920,,,,Roger,fils,,,française,,,Cagnat,
+18633,,1922,,,,Guy,fils,,,française,,,Cagnat,
 18634,,1903,,,,Paulette,nièce,s,,française,,sp,Perchel,
 18635,,1911,,,Cagnat,Joseph,cuisinier,,,française,,cuisinier,Briat,
 18636,,1911,,,,Lucien,,Cher,,,,,Désamais,
 18637,,1912,,,,Jean,,,,,,,Aufauvre,
 18638,,1897,,,Cagnat,François,employé hôtel,Isère,,française,,employé hôtel,Juveneton,
 18639,,1904,,,Cagnat,Joséphine,argentière,Loire,,française,,argentière,Mallet,
-18640,,1899,,,Cagnat,Anna,femme de chambre,Idem,,française,,femme de chambre,Laeonne,
+18640,,1899,,,Cagnat,Anna,femme de chambre,Loire,,française,,femme de chambre,Laeonne,
 18641,,1908,,,Cagnat,Joseph,pâtissier,Morbihan,,française,,pâtissier,Le Bihan,
 18642,,1887,,,Cagnat,Célina,employée,,,française,,employée,Hameau,
 18643,,1891,,,,Jean,chef,,,,,cuisinier,Charvy,
 18644,,1893,,,,Madeleine,épouse,,,,,caissière,Charvy,
 18645,,1867,,,,Georges,chef,Nièvre,,,,ingénieur,Coruette,
 18646,,1869,,,,Anne,épouse,,,,,sp,Coruette,
-18647,,1906,,,Cornette,Marie,domestique,Idem,,française,,domestique,Bordes,
+18647,,1906,,,Cornette,Marie,domestique,,,française,,domestique,Bordes,
 18648,,1847,,,,Edmond,chef,Nièvre,,française,,,Chabet,
-18649,,1889,,,Chabet,Marie,cuisinière,Idem,,française,,cuisinière,Fleury,
+18649,,1889,,,Chabet,Marie,cuisinière,Nièvre,,française,,cuisinière,Fleury,
 18650,,1909,,,Chabet,Madeleine,,Cher,,,,femme de chambre,Lasue,
 18651,,1889,,,,Camille,chef,Nord,,française,,receveur municipal,Delgenfre,
 18652,,1892,,,,Clotilde,épouse,S et L,,,,employée PTT,Delgenfre,
@@ -22912,7 +22912,7 @@
 22910,,1874,,,Patron,Jean,chef,Moëlan,,française,,Journalier,,Souffez
 22911,,1872,,,,Louise,épouse,Moëlan,,française,,néant,Gall,
 22912,,1899,,,patronne,Joséphine,fille,Moëlan,,française,,couturière,Souffez,
-22913,,1918,,,,Louis,fils,Moëlan,,française,,néant,Idem,
+22913,,1918,,,,Louis,fils,Moëlan,,française,,néant,Souffez,
 22914,,1884,,,patronne,Françoise,chef,Moëlan,,française,,journalière,,Costaonec
 22915,,1914,,,,Victor,fils,Moëlan,,française,,néant,Garnier,
 22916,,1916,,,,Odette,fille,Moëlan,,française,,néant,Garnier,
