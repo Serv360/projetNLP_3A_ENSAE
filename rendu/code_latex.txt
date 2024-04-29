@@ -1,0 +1,238 @@
+\documentclass{article}
+%\usepackage[french]{babel}
+\usepackage{geometry}
+\usepackage{dsfont}
+\usepackage{picture}
+\geometry{hmargin=2cm,vmargin=2.5cm} % Pour les marges
+\usepackage{eurosym}
+\usepackage{textcomp}
+
+\usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
+\addbibresource{biblio.bib} %Import the bibliography file
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+% Cadres de couleur
+\usepackage{microtype}
+\usepackage{tcolorbox}
+\newcommand{\important}[2]{\begin{tcolorbox}[colback=grey!5!white,
+                  colframe=grey, %Plus le chiffre est bas. plus la 1ere couleur est faiblement présente.
+                  title= #2
+                 ]\begin{center}#1\end{center}\end{tcolorbox}}
+
+\newcommand{\importantNonCentre}[2]{\begin{tcolorbox}[colback=grey!5!white,
+                  colframe=grey, %Plus le chiffre est bas. plus la 1ere couleur est faiblement présente.
+                  title= #2
+                 ]#1\end{tcolorbox}} % IDEM sans centrage du texte
+
+\newcommand{\importantnormal}[1]{\begin{tcolorbox}[colback=grey!5!white,
+                  colframe=grey, %Plus le chiffre est bas. plus la 1ere couleur est faiblement présente.
+                  title= 
+                 ]#1\end{tcolorbox}}
+
+\title{\vspace{-2cm}Projet NLP 3A ENSAE}
+\author{Loïc Thomas}
+\date{March 2024}
+
+\begin{document}
+
+\maketitle
+
+% Présentation de la tâche
+% Présentation et description des données
+% statistiques descriptives des données disponibles
+% estimation de la taille des données cibles
+% identification autres données externes utilisables
+% Analyse des modèles
+% identification du type de tâches à réaliser
+% analyse des forces et faiblesses des modèles utilisables
+% choix d’un modèle
+% Expérimentation
+% description du protocol expérimental
+% Analyse des résultats obtenus
+% Conclusion
+% Recommandations
+Code disponible ici : \url{https://github.com/Serv360/projetNLP_3A_ENSAE}
+
+\section{Présentation de la tâche}
+
+Dans le cadre du cours \textit{Machine Learning for Natural Language Processing} (SE364) dispensé en troisième année à l'Ecole nationale de la Statistique et de l'Administration économique (ENSAE), je travaille sur des données du projet Socface. 
+
+\importantnormal{Le projet Socface associe des archivistes, démographes et informaticiens pour analyser les documents de recensement français et en extraire des informations à très grande échelle. L’objectif est de rassembler et de traiter par reconnaissance automatique de l’écriture toutes les listes nominatives manuscrites des recensements de 1836 à 1936.
+
+Produites tous les cinq ans, ces listes sont organisées spatialement (commune~; quartiers, hameaux ou rues~; maisons~; ménages) et résument les informations issues du recensement, en listant chaque individu avec certaines de ses caractéristiques, comme son nom, son année de naissance ou sa profession.
+
+Le projet vise à tirer parti de ce matériel d’archives pour produire une base de données de tous les individus ayant vécu en France entre 1836 et 1936, qui sera utilisée pour analyser les changements sociaux sur une période de 100 ans. Un impact important de Socface sera l’accès public aux listes nominatives : elles seront mises à disposition gratuitement, permettant à quiconque de parcourir des centaines de millions d’enregistrements.\footnote{\url{https://socface.site.ined.fr/}}}
+
+Je vais m'intéresser à un des champs du recensement désigné de la façon suivante : \textit{position dans le ménage}, \textit{situation par rapport au chef de ménage} ou encore \textit{link} en anglais. En particulier, un individu recensé peut être chef de ménage, \textit{chef}, ou non. Ce champ est important, par exemple, pour regrouper les ménages afin de faire des analyses sociologiques à cette échelle, encore aujourd'hui privilégiée à l'Insee. \\
+
+Le fait d'être \textit{chef} n'est pas toujours renseigné, et pas toujours bien renseigné ou lisible. Dès lors, il est intéressant de savoir le prédire à partir des autres champs bien renseignés de la ligne. Par exemple, dans les données que j'utilise pour entraîner mes modèles à réaliser cette tâche, le champ \textit{link} est vide pour 4389 individus sur 25081.
+
+\section{Présentation et description des données}
+
+Je dispose de 1218 pages de recensement contenant en tout 25081 individus\footnote{base de donnée créée par Teklia, disponible ici \url{https://arkindex.teklia.com/element/1109b196-7224-429a-9ef6-2f128034ed51}}. Les pages sont disponibles au format Json sous la forme de longues chaînes de caractères. Les lignes sont séparées par des sauts de ligne (\textbackslash n) et les champs sont séparés par des caractères spéciaux \textcircled{A}, \textcircled{B}, \textcircled{C}, \textcircled{D}, \textcircled{E}, \textcircled{F}, \textcircled{H}, \textcircled{I}, \textcircled{J}, \textcircled{K}, \textcircled{L}, \textcircled{M}, \textcircled{O} et \textcircled{P}. Ils correspondent respectivement aux champs suivants : \textit{age}, \textit{birth\_date}, \textit{civil\_status}, \textit{education\_level}, \textit{employer}, \textit{firstname}, \textit{link}, \textit{lob}, \textit{maiden\_name}, \textit{nationality}, \textit{observation}, \textit{occupation}, \textit{surname}, \textit{surname\_household}. \\
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}{0.32\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{images/moulin_allier_1936.jpg}
+        \caption{Exemple de feuille de recensement.}
+        \label{exemple_feuille}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+        \centering
+        \includegraphics[width=0.97\textwidth]{images/null_count.png}
+        \caption{Nombre de lignes vides par champ.}
+        \label{none_in_data}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+        \centering
+        \includegraphics[width=0.97\textwidth]{images/unique_count.png}
+        \caption{Nombre de val. uniques par champ.}
+        \label{unique_in_data}
+    \end{subfigure}
+    \caption{}
+    \label{fig:side_by_side}
+\end{figure}
+
+La Figure \ref{exemple_feuille} montre un exemple de formulaire de rencensement sur lequel une extraction des informations est réalisée avec de la computer vision pour obtenir les données textuelles. La Figure \ref{none_in_data} présente le nombre de lignes qui sont vides pour chacun des champs. Enfin, la Figure \ref{unique_in_data} donne le nombre de valeurs uniques. Cela est très important pour le choix de la représentation numérique des champs. S'il y a un faible nombre de valeurs uniques, on peut imaginer faire du one-hot-encoding. Si le nombre de valeurs uniques est très grand, il sera pertinent de les agréger si on veut produire, à partir d'elles, des variables catégorielles.
+
+\section{Nettoyage et création des champs numériques continus et catégoriels}
+
+\subsection{Nettoyage des données}
+
+La première étape est d'obtenir un dataframe de taille $25081$ rows × $14$ columns. Les $14$ colonnes correspondant aux 14 champs énumérés dans la partie précédente. \\
+
+Ensuite, j'ai remarqué la présence de nombreux \textit{idem} et \textit{Idem} dans les données. Ils signifient que la valeur de cette ligne est la même que la première valeur qui n'est pas \textit{idem} ou \textit{Idem} dans la même colonne. L'utilisation des fonction \textit{replace} et \textit{ffill} de la bibliothèque pandas permet de les remplacer par les bonnes valeurs. \\
+
+J'ai fait le choix de drop les colonnes entièrement vides ou quasiment suivantes : \textit{education\_level}, \textit{maiden\_name} et \textit{observation}. Elles ne contiennent pas ou pas assez d'information pour la prédiction. \\
+
+J'ai gardé seulement les lignes qui possède un \textit{link} et j'ai éliminé les lignes pour lesquelles ce champ est vide. 
+J'ai créé un champ, appelé \textit{target} valant 1 si le \textit{link} correspond à un chef de famille et 0 sinon. Pour cela, il faut bien faire attention aux différentes dénominations de chef. Elles sont disponibles dans le code, il y en a $43$. En prenant seulement "chef", le modèle est forcément moins bon. \\
+
+Enfin, le dataset est déséquilibré : $4637$ pour $20692$ lignes avec un \textit{link} non vide. J'ai fait le choix de le rééquilibrer en enlevant au hasard $20692 - 2*4637$ individus qui ne sont pas chefs et en gardant donc $4637$ individus non chefs. On perd ainsi beaucoup d'informations mais cela permet d'avoir un prédicteur non biaisé. Il existe des techniques pour bien choisir les individus à garder ou pour créer de nouveaux individus à partir des vrais qui rassemblent un maximum de l'information mais je n'ai pas developpé ce point-là. \\
+
+Le dataset est maintenant nettoyé. Nous avons déjà à ce stade notre colonne \textit{target} qu'on souhaite prédire et on a conservé $9274$ individus.
+
+% 1. Obtenir un dataframe 25081 rows × 14 columns
+% 2. Remplacement des idems
+% 3. Elimination des lignes avec link vide
+% 4. Drop les colonnes qui sont entièrement vides ou quasiment
+
+\subsection{Création des champs numériques continus et catégoriels}
+
+L'étape suivante est de créer des champs numériques pour les intégrer dans les classifieurs. J'ai fait le choix d'utiliser des classifieurs de Machine Learning classiques en créant moi-même des champs pertinents à la main. Des modèles d'embeddings du type word2vec, GloVe, ELMo ou encore BERT qui peuvent transformer les mots en vecteurs numériques seraient tout à fait adaptés. Je n'ai pas fait ce choix-là car je crois qu'en créant un petit nombre de catégories au sein des champs les plus pertinents pour prédire le chef, on arrive à un très bon résultat. Une telle démarche permet également d'avoir une bonne compréhension du modèle. 
+
+J'ai choisi de me concentrer sur les colonnes suivantes qui présentaient pour moi le plus d'intérêt pour la tâche de prédiction : \textit{firstname}, \textit{civil\_status}, \textit{occupation} et \textit{age}. \\
+
+Avec le \textbf{prénom} de l'individu, il est possible d'avoir une bonne idée de son sexe. Or, les chefs de famille sont principalement des hommes dans la classification du recensement de cet époque. Par ailleurs, \textit{firstname} est le champ le plus renseigné dans mes données, il a donc un pouvoir explicatif fort. Enfin, j'ai accès à une autre source de données qui pour chaque prénom ($6947$ prénoms) me donne son nombre de porteurs féminins et masculins. De là, je crée donc une variable numérique continue de la manière suivante :
+\vspace{-0.1cm}
+$$ \mathrm{name\_value} = \arcsin{\left( \frac{\mathrm{PREVALENCE\_MALE} - \mathrm{PREVALENCE\_FEMALE}}{\mathrm{PREVALENCE\_MALE} + \mathrm{PREVALENCE\_FEMALE}} \right)} / \frac{\pi}{2} $$
+
+Je donne une valeur de 0 à l'individu si son prénom n'est pas renseigné ou si la chaîne de caractères est vide. Sans la fonction $\arcsin$, les valeurs seraient toutes collées très proches de -1 (prénoms féminins) et 1 (prénoms masculins) car la majorité des prénoms sont très genrés. L'utilisation de la fonction $\arcsin$ permet d'éclater un peu plus les valeurs. Cela a un intérêt tout d'abord pour la visualisation des variables explicatives mais aussi pour certains modèles qui prédisent mieux lorsque les données ont une distribution plus uniforme. \\
+
+Le \textbf{statut civil} présente un avantage important : c'est une variable standardisée qui ne prend que 6 valeurs distinctes : \textit{Garçon}, \textit{Femme mariée}, \textit{Fille}, \textit{Homme marié}, \textit{Veuf}, \textit{Veuve}. Il y a un léger inconvénient toutefois, un peu plus de la moitié des lignes n'ont pas de \textit{civil\_status} (voir Figure \ref{none_in_data}). À partir de cette colonne je crée un champ \textit{sex\_from\_civil\_status} qui vaut 1 si le statut civil est masculin, -1 s'il est féminin et 0 s'il est absent. Je crée également 6 dummies variables pour chacune des valeurs. \\
+
+L'\textbf{occupation} est également très intéressante. Elle est globalement bien renseignée, en particulier très bien renseignée pour les chefs de famille. Le métier permet d'avoir une idée sur le sexe de l'individu et également sur son âge. En effet, pour les enfants le métier n'est souvent pas renseigné ou bien contient une des nombreuses chaînes de caractères qui indiquent que l'individu n'a pas de profession. Le nom du métier est souvent genré, il constitue donc un bon proxy du genre. J'ai choisi de créer trois champs à partir de la colonne \textit{occupation} : \textit{has\_no\_occupation}, \textit{is\_farmer}, \textit{has\_male\_job}. La première permet de discriminer les femmes qui ne travaillent pas et les enfants. La seconde permet de discriminer les hommes qui travaillent dans le milieu agricole et la troisième les hommes qui travaillent. La deuxième est probablement fortement inclue dans la troisième mais je l'ai prise quand même car le monde agricole est le principal secteur d'activité à cette époque. \\
+
+Enfin l'\textbf{âge} a également un pouvoir explicatif très fort. J'ai constaté que les moins de 25 ans sont rarement chefs de famille, ce qui permet d'exclure de nombreuses personnes. Le champs \textit{age} est plutôt bien renseigné, autant que \textit{occupation}. J'ai enlevé les valeurs non entières et non comprises entre 0 et 110 et j'ai imputé les valeurs manquantes par 25, le seuil me semble-t-il à partir duquel les hommes commencent à devenir chefs de famille (voir Figure \ref{explaining_power}). J'ai aussi créé une variable indicatrice codant si l'âge est imputé ou non. \\
+
+La Figure \ref{explaining_power} permet de visualiser le fait d'être chef de famille en fonction des 12 champs calculés (tous sauf l'indicatrice d'imputation de l'âge) à partir des quatre colonnes \textit{firstname}, \textit{civil\_status}, \textit{occupation} et \textit{age}. J'ai appliqué un shift aléatoire autour de 0 et 1 pour mieux voir. \\
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{images/variables_explaining_power.png}
+    \caption{Être un chef de famille (1 : noir, 0 : vert) en fonction des champs calculés.}
+    \label{explaining_power}
+\end{figure}
+
+J'explique briévement pourquoi je me suis pas intéressé aux autres colonnes. Les arguments sont issus de la Figure \ref{none_in_data} et \ref{unique_in_data}. La \textbf{date de naissance} est redondante avec l'âge et elle est renseignée beaucoup moins souvent. L'\textbf{employeur} est quasiment jamais renseigné et ce sont majoritairement des valeurs uniques, difficilement agrégeables. La \textbf{localisation} (\textit{lob}) est rarement renseignée et apporte a priori pas tellement d'information. C'est similaire pour la \textbf{nationalité}. Le \textbf{nom de famille} est souvent renseigné mais il y a de nombreuses valeurs uniques non agrégeables (plus grand nombre parmi les champs avec $7078$ valeurs uniques). Enfin, le \textbf{nom de famille du ménage} est très rarement renseigné. \\
+
+Il aurait été intéressant toutefois de regarder l'ordre dans lequel apparaissent les individus sur les feuilles de recensement. Le chef de ménage apparaît souvent en premier. Le nom de famille/nom de famille du ménage et la localisation/nationalité peuvent alors être de très bons indicateurs d'une unité de ménage qui se suit. Je n'ai pas creusé de ce côté-là. L'avantage de mon choix de variables et de mes modèles est que je peux prédire le fait d'être chef de famille sur des individus isolés. Par exemple, peut-être que certaines feuilles sont non numérotées et que leur ordre a été perdu. Dans ce cas, il peut être difficile d'utiliser la technique décrite pour détecter les unités de ménage, parmi les individus en début de feuille.
+
+% La colonne nom 
+% La colonne civil_status
+% La colonne occupation
+% La colonne age
+
+\section{Comparaison des modèles}
+
+\label{Comparaison}
+
+J'ai désormais un dataset contenant 13 variables explicatives et ma target.
+Je compare quatre types de classifieurs de sklearn : \textit{GradientBoostingClassifier}, \textit{RandomForestClassifier}, \textit{GaussianProcessClassifier} avec un kernel \textit{RBF} et \textit{KNeighborsClassifier}.
+
+Je fais un grid search pour les random forests et les classifieurs KNN pour trouver les meilleurs hyperparamètres (\textit{max\_depth} et \textit{n\_neighbors}).
+Je fais ensuite une validation croisée (3 groupes) pour le meilleur classifieur de chacun des quatre types. J'obtiens les résultats disponibles dans la Table \ref{classifier_performance}. On note en particulier que l'entraînement du GaussianProcessClassifier est particulièrement long, 3 minutes contre quelques secondes maximum pour les autres. Le classifieur KNN a le désavantage de prendre de la place en mémoire, en particulier lorsque le set d'entraînement est très grand ce qui peut être le cas pour le recensement.
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}{0.59\textwidth}
+        \centering
+        \begin{tabular}{|l|c|}
+            \hline
+            \textbf{Classifier} & \textbf{Accuracy} \\
+            \hline
+            GaussianProcessClassifier & 0.8435099 \\
+            RandomForestClassifier (max\_depth=10) & 0.8480714 \\
+            KNeighborsClassifier (n\_neighbors = 20) & 0.8274758 \\
+            GradientBoostingClassifier & 0.8482275 \\
+            \hline
+        \end{tabular}
+        \caption{Performances des classifieurs.}
+        \label{classifier_performance}
+    \end{subfigure}
+    \begin{subfigure}{0.39\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/confusion_matrix.png}
+        \caption{Matrice de confusion (GBClassifier).}
+        \label{confusion_matrix}
+    \end{subfigure}
+    \caption{}
+    \label{fig:side_by_side2}
+\end{figure}
+
+On voit sans surprise que le GradientBoostingClassifier a de meilleures performances que les trois autres. C'est souvent le cas, même si dans notre cas l'accuracy de tous est très proche. En particulier, on calcule la matrice de confusion sur un jeu de test pour un entraînement sur 80\% des données en Figure \ref{confusion_matrix}. L'accuracy est de $0.8571429$. Les performances de prédiction sur les deux classes sont équilibrées.
+
+Enfin l'analyse de l'importance, Figure \ref{importances} en Annexes, permet de voir que les variables qui contiennent le plus d'information sont \textit{has\_no\_occupation}, \textit{age\_value} et \textit{value\_name}. Je m'attendais à la présence de \textit{age\_value} et \textit{value\_name} en tête. \textit{has\_no\_occupation} est un peu plus étonnant mais la Figure \ref{explaining_power} montre bien une corrélation entre \textit{has\_no\_occupation} et \textit{target}. Une matrice similaire à une matrice de confusion en apporterait la confirmation chiffrée.
+
+
+
+\section{Comment appliquer le modèle sur les données réelles.}
+
+\label{Application}
+
+J'ai déjà abordé cette question dans les parties précédentes. Mes transformations pour obtenir les 13 champs calculés numériques continus ou catégoriels sont applicables sur n'importe quelle ligne extraite par Computer Vision dont les informations ont été typées. La classification se fait ensuite aisément avec le Gradient Boosting Regressor. On privilégiera ce dernier car il est rapide à entraîner, il est rapide pour prédire, il a peu tendance à l'overfitting, il ne demande pas beaucoup de place en mémoire et on a obtenu grâce à lui les meilleurs résultats. 
+
+Ma pipeline permet alors de prédire pour des lignes isolées si l'individu est un chef de famille ou non.
+
+\section{Conclusion}
+
+J'obtiens des bons résultats de classification des chefs de famille grâce à la création de 13 champs calculés à partir des colonnes \textit{firstname}, \textit{civil\_status}, \textit{occupation} et \textit{age} et des classifieurs \textit{GradientBoostingClassifier}, \textit{RandomForestClassifier}, \textit{GaussianProcessClassifier} avec un kernel \textit{RBF} et \textit{KNeighborsClassifier}. Je privilégierais le \textit{GradientBoostingClassifier} du fait de ses performances temporelles, spatiales et de précision plus grandes, détaillées en section \ref{Comparaison} et \ref{Application}.
+
+Pour aller plus loin et améliorer les résultats, il serait possible de mieux choisir les paramètres du Gradient Boosting classifier, en particulier \textit{max\_depth}. Calculer d'autres champs pertinents est tout à fait possible, notamment encore à partir de la colonne occupation qui contient beaucoup d'information. En essayant d'autres aggrégations, il serait possible d'améliorer l'accuracy. Attention toutefois à l'overfitting si on choisit les champs en fonction de l'accuracy sur notre sous-échantillon. Utiliser l'ordre des individus dans les feuilles de recensement pourrait apporter beaucoup d'information également mais le domaine d'application est un peu différent. Enfin, l'utilisation de modèles d'embedding est également adapté à cette tâche pour produire des vecteurs numériques utilisables dans les classifieurs.
+
+\newpage
+
+\section{Annexes}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{images/importances_random_forest.png}
+    \caption{Importances des variables explicatives pour la Random Forest (max\_depth = 10)}
+    \label{importances}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/frequency_name_value.png}
+    \caption{Distribution de la variable \textit{value\_name} obtenu à partir du champ \textit{firstname}.}
+    \label{frequency}
+\end{figure}
+
+\end{document}
